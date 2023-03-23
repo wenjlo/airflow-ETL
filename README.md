@@ -5,13 +5,13 @@
 ##### 我們預先安裝 python 會用到的套件
 ##### 在 Dockerfile 中引入requirements.txt 的pip install 
 ----------------------------------------------------------------
-    Dockerfile:
+    # Dockerfile:
     FROM apache/airflow:latest
     COPY requirements.txt .
     RUN pip install --user --upgrade pip
     RUN pip install --no-cache-dir --user -r requirements.txt
 # 2. Build new Airflow image
-    In same folder run:
+    # In same folder run command:
     docker build . --tag pyrequire_airflow:2.3.3 
     or
     docker build . --tag <your_image_name>:version 
