@@ -1,0 +1,30 @@
+[2023-03-21 05:38:18,300] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: download_stock.download_price manual__2023-03-21T05:38:17.101923+00:00 [queued]>
+[2023-03-21 05:38:18,310] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: download_stock.download_price manual__2023-03-21T05:38:17.101923+00:00 [queued]>
+[2023-03-21 05:38:18,311] {taskinstance.py:1376} INFO - 
+--------------------------------------------------------------------------------
+[2023-03-21 05:38:18,312] {taskinstance.py:1377} INFO - Starting attempt 1 of 2
+[2023-03-21 05:38:18,313] {taskinstance.py:1378} INFO - 
+--------------------------------------------------------------------------------
+[2023-03-21 05:38:18,327] {taskinstance.py:1397} INFO - Executing <Task(PythonOperator): download_price> on 2023-03-21 05:38:17.101923+00:00
+[2023-03-21 05:38:18,333] {standard_task_runner.py:52} INFO - Started process 2126 to run task
+[2023-03-21 05:38:18,338] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'download_stock', 'download_price', 'manual__2023-03-21T05:38:17.101923+00:00', '--job-id', '165', '--raw', '--subdir', 'DAGS_FOLDER/download_stock_price.py', '--cfg-path', '/tmp/tmpe9co5c08', '--error-file', '/tmp/tmpbuwk_zsw']
+[2023-03-21 05:38:18,341] {standard_task_runner.py:80} INFO - Job 165: Subtask download_price
+[2023-03-21 05:38:18,433] {task_command.py:371} INFO - Running <TaskInstance: download_stock.download_price manual__2023-03-21T05:38:17.101923+00:00 [running]> on host 6b2dd5cdd356
+[2023-03-21 05:38:18,523] {taskinstance.py:1591} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_EMAIL=***@example.com
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=download_stock
+AIRFLOW_CTX_TASK_ID=download_price
+AIRFLOW_CTX_EXECUTION_DATE=2023-03-21T05:38:17.101923+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-03-21T05:38:17.101923+00:00
+[2023-03-21 05:38:18,541] {logging_mixin.py:115} INFO - IBM GE AAPL MSFT
+[2023-03-21 05:38:18,542] {logging_mixin.py:115} INFO - ['IBM', 'GE', 'AAPL', 'MSFT']
+[2023-03-21 05:38:19,099] {logging_mixin.py:115} INFO - <class 'pandas.core.frame.DataFrame'>
+[2023-03-21 05:38:19,100] {logging_mixin.py:115} INFO - (9330, 7)
+[2023-03-21 05:38:19,100] {logging_mixin.py:115} INFO - /opt/***
+[2023-03-21 05:38:19,361] {logging_mixin.py:115} INFO - Finished downloading MSFT data.
+[2023-03-21 05:38:19,362] {python.py:173} INFO - Done. Returned value was: None
+[2023-03-21 05:38:19,376] {taskinstance.py:1420} INFO - Marking task as SUCCESS. dag_id=download_stock, task_id=download_price, execution_date=20230321T053817, start_date=20230321T053818, end_date=20230321T053819
+[2023-03-21 05:38:19,438] {local_task_job.py:156} INFO - Task exited with return code 0
+[2023-03-21 05:38:19,478] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check

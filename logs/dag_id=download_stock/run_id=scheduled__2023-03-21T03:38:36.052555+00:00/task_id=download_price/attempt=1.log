@@ -1,0 +1,36 @@
+[2023-03-21 03:43:37,782] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: download_stock.download_price scheduled__2023-03-21T03:38:36.052555+00:00 [queued]>
+[2023-03-21 03:43:37,791] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: download_stock.download_price scheduled__2023-03-21T03:38:36.052555+00:00 [queued]>
+[2023-03-21 03:43:37,791] {taskinstance.py:1376} INFO - 
+--------------------------------------------------------------------------------
+[2023-03-21 03:43:37,792] {taskinstance.py:1377} INFO - Starting attempt 1 of 2
+[2023-03-21 03:43:37,792] {taskinstance.py:1378} INFO - 
+--------------------------------------------------------------------------------
+[2023-03-21 03:43:37,927] {taskinstance.py:1397} INFO - Executing <Task(PythonOperator): download_price> on 2023-03-21 03:38:36.052555+00:00
+[2023-03-21 03:43:37,934] {standard_task_runner.py:52} INFO - Started process 58 to run task
+[2023-03-21 03:43:37,939] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'download_stock', 'download_price', 'scheduled__2023-03-21T03:38:36.052555+00:00', '--job-id', '133', '--raw', '--subdir', 'DAGS_FOLDER/download_stock_price.py', '--cfg-path', '/tmp/tmp7vxrhlyv', '--error-file', '/tmp/tmpmr06ng0g']
+[2023-03-21 03:43:37,941] {standard_task_runner.py:80} INFO - Job 133: Subtask download_price
+[2023-03-21 03:43:38,019] {task_command.py:371} INFO - Running <TaskInstance: download_stock.download_price scheduled__2023-03-21T03:38:36.052555+00:00 [running]> on host 6b2dd5cdd356
+[2023-03-21 03:43:38,087] {taskinstance.py:1591} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_EMAIL=***@example.com
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=download_stock
+AIRFLOW_CTX_TASK_ID=download_price
+AIRFLOW_CTX_EXECUTION_DATE=2023-03-21T03:38:36.052555+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2023-03-21T03:38:36.052555+00:00
+[2023-03-21 03:43:38,579] {logging_mixin.py:115} INFO - <class 'pandas.core.frame.DataFrame'>
+[2023-03-21 03:43:38,580] {logging_mixin.py:115} INFO - (9330, 7)
+[2023-03-21 03:43:38,581] {logging_mixin.py:115} INFO - /opt/***
+[2023-03-21 03:43:38,581] {taskinstance.py:1909} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 171, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 189, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/download_stock_price.py", line 46, in download_price
+    with open(f'/Users/chris_lo/PycharmProjects/airflow/logs/{ticker}.csv','w') as writer:
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/chris_lo/PycharmProjects/airflow/logs/MSFT.csv'
+[2023-03-21 03:43:38,590] {taskinstance.py:1420} INFO - Marking task as UP_FOR_RETRY. dag_id=download_stock, task_id=download_price, execution_date=20230321T033836, start_date=20230321T034337, end_date=20230321T034338
+[2023-03-21 03:43:38,600] {standard_task_runner.py:97} ERROR - Failed to execute job 133 for task download_price ([Errno 2] No such file or directory: '/Users/chris_lo/PycharmProjects/airflow/logs/MSFT.csv'; 58)
+[2023-03-21 03:43:38,644] {local_task_job.py:156} INFO - Task exited with return code 1
+[2023-03-21 03:43:38,679] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check

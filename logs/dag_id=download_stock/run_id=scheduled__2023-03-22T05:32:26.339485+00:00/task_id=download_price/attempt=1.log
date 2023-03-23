@@ -1,0 +1,29 @@
+[2023-03-22 05:37:27,898] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: download_stock.download_price scheduled__2023-03-22T05:32:26.339485+00:00 [queued]>
+[2023-03-22 05:37:27,909] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: download_stock.download_price scheduled__2023-03-22T05:32:26.339485+00:00 [queued]>
+[2023-03-22 05:37:27,909] {taskinstance.py:1376} INFO - 
+--------------------------------------------------------------------------------
+[2023-03-22 05:37:27,910] {taskinstance.py:1377} INFO - Starting attempt 1 of 2
+[2023-03-22 05:37:27,910] {taskinstance.py:1378} INFO - 
+--------------------------------------------------------------------------------
+[2023-03-22 05:37:27,921] {taskinstance.py:1397} INFO - Executing <Task(PythonOperator): download_price> on 2023-03-22 05:32:26.339485+00:00
+[2023-03-22 05:37:27,926] {standard_task_runner.py:52} INFO - Started process 2476 to run task
+[2023-03-22 05:37:27,930] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'download_stock', 'download_price', 'scheduled__2023-03-22T05:32:26.339485+00:00', '--job-id', '241', '--raw', '--subdir', 'DAGS_FOLDER/download_stock_price.py', '--cfg-path', '/tmp/tmpj8nnwh5i', '--error-file', '/tmp/tmp2mq7b_h5']
+[2023-03-22 05:37:27,933] {standard_task_runner.py:80} INFO - Job 241: Subtask download_price
+[2023-03-22 05:37:28,004] {task_command.py:371} INFO - Running <TaskInstance: download_stock.download_price scheduled__2023-03-22T05:32:26.339485+00:00 [running]> on host f5fe9057b95b
+[2023-03-22 05:37:28,073] {taskinstance.py:1591} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_EMAIL=***@example.com
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=download_stock
+AIRFLOW_CTX_TASK_ID=download_price
+AIRFLOW_CTX_EXECUTION_DATE=2023-03-22T05:32:26.339485+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2023-03-22T05:32:26.339485+00:00
+[2023-03-22 05:37:28,083] {logging_mixin.py:115} INFO - None
+[2023-03-22 05:37:29,362] {logging_mixin.py:115} INFO - Finished downloading IBM data.
+[2023-03-22 05:37:30,422] {logging_mixin.py:115} INFO - Finished downloading GE data.
+[2023-03-22 05:37:31,183] {logging_mixin.py:115} INFO - Finished downloading AAPL data.
+[2023-03-22 05:37:31,779] {logging_mixin.py:115} INFO - Finished downloading MSFT data.
+[2023-03-22 05:37:31,779] {python.py:173} INFO - Done. Returned value was: None
+[2023-03-22 05:37:31,792] {taskinstance.py:1420} INFO - Marking task as SUCCESS. dag_id=download_stock, task_id=download_price, execution_date=20230322T053226, start_date=20230322T053727, end_date=20230322T053731
+[2023-03-22 05:37:31,846] {local_task_job.py:156} INFO - Task exited with return code 0
+[2023-03-22 05:37:31,884] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check

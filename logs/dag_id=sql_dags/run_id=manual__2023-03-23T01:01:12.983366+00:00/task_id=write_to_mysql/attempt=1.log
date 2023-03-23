@@ -1,0 +1,26 @@
+[2023-03-23T01:01:15.220+0000] {taskinstance.py:1084} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: sql_dags.write_to_mysql manual__2023-03-23T01:01:12.983366+00:00 [queued]>
+[2023-03-23T01:01:15.235+0000] {taskinstance.py:1084} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: sql_dags.write_to_mysql manual__2023-03-23T01:01:12.983366+00:00 [queued]>
+[2023-03-23T01:01:15.236+0000] {taskinstance.py:1282} INFO - 
+--------------------------------------------------------------------------------
+[2023-03-23T01:01:15.237+0000] {taskinstance.py:1283} INFO - Starting attempt 1 of 2
+[2023-03-23T01:01:15.238+0000] {taskinstance.py:1284} INFO - 
+--------------------------------------------------------------------------------
+[2023-03-23T01:01:15.257+0000] {taskinstance.py:1303} INFO - Executing <Task(PythonOperator): write_to_mysql> on 2023-03-23 01:01:12.983366+00:00
+[2023-03-23T01:01:15.265+0000] {standard_task_runner.py:55} INFO - Started process 4153 to run task
+[2023-03-23T01:01:15.271+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'sql_dags', 'write_to_mysql', 'manual__2023-03-23T01:01:12.983366+00:00', '--job-id', '462', '--raw', '--subdir', 'DAGS_FOLDER/sql_dags.py', '--cfg-path', '/tmp/tmpqmdjr0v3']
+[2023-03-23T01:01:15.272+0000] {standard_task_runner.py:83} INFO - Job 462: Subtask write_to_mysql
+[2023-03-23T01:01:15.358+0000] {task_command.py:388} INFO - Running <TaskInstance: sql_dags.write_to_mysql manual__2023-03-23T01:01:12.983366+00:00 [running]> on host aeff5136c067
+[2023-03-23T01:01:15.442+0000] {taskinstance.py:1511} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_EMAIL=***@example.com
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=sql_dags
+AIRFLOW_CTX_TASK_ID=write_to_mysql
+AIRFLOW_CTX_EXECUTION_DATE=2023-03-23T01:01:12.983366+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-03-23T01:01:12.983366+00:00
+[2023-03-23T01:01:15.456+0000] {logging_mixin.py:137} INFO - my_database
+[2023-03-23T01:01:15.705+0000] {logging_mixin.py:137} INFO - Finished downloading GE data.
+[2023-03-23T01:01:15.706+0000] {python.py:177} INFO - Done. Returned value was: None
+[2023-03-23T01:01:15.719+0000] {taskinstance.py:1326} INFO - Marking task as SUCCESS. dag_id=sql_dags, task_id=write_to_mysql, execution_date=20230323T010112, start_date=20230323T010115, end_date=20230323T010115
+[2023-03-23T01:01:15.769+0000] {local_task_job.py:212} INFO - Task exited with return code 0
+[2023-03-23T01:01:15.795+0000] {taskinstance.py:2585} INFO - 0 downstream tasks scheduled from follow-on schedule check

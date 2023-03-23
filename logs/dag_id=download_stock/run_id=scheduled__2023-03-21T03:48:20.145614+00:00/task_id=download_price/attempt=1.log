@@ -1,0 +1,44 @@
+[2023-03-21 03:53:21,992] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: download_stock.download_price scheduled__2023-03-21T03:48:20.145614+00:00 [queued]>
+[2023-03-21 03:53:22,001] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: download_stock.download_price scheduled__2023-03-21T03:48:20.145614+00:00 [queued]>
+[2023-03-21 03:53:22,002] {taskinstance.py:1376} INFO - 
+--------------------------------------------------------------------------------
+[2023-03-21 03:53:22,002] {taskinstance.py:1377} INFO - Starting attempt 1 of 2
+[2023-03-21 03:53:22,003] {taskinstance.py:1378} INFO - 
+--------------------------------------------------------------------------------
+[2023-03-21 03:53:22,016] {taskinstance.py:1397} INFO - Executing <Task(PythonOperator): download_price> on 2023-03-21 03:48:20.145614+00:00
+[2023-03-21 03:53:22,022] {standard_task_runner.py:52} INFO - Started process 256 to run task
+[2023-03-21 03:53:22,025] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'download_stock', 'download_price', 'scheduled__2023-03-21T03:48:20.145614+00:00', '--job-id', '142', '--raw', '--subdir', 'DAGS_FOLDER/download_stock_price.py', '--cfg-path', '/tmp/tmp8cfd3u4f', '--error-file', '/tmp/tmp_y3aq8fi']
+[2023-03-21 03:53:22,028] {standard_task_runner.py:80} INFO - Job 142: Subtask download_price
+[2023-03-21 03:53:22,178] {task_command.py:371} INFO - Running <TaskInstance: download_stock.download_price scheduled__2023-03-21T03:48:20.145614+00:00 [running]> on host 6b2dd5cdd356
+[2023-03-21 03:53:22,267] {taskinstance.py:1591} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_EMAIL=***@example.com
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=download_stock
+AIRFLOW_CTX_TASK_ID=download_price
+AIRFLOW_CTX_EXECUTION_DATE=2023-03-21T03:48:20.145614+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2023-03-21T03:48:20.145614+00:00
+[2023-03-21 03:53:22,813] {logging_mixin.py:115} INFO - <class 'pandas.core.frame.DataFrame'>
+[2023-03-21 03:53:22,814] {logging_mixin.py:115} INFO - (9330, 7)
+[2023-03-21 03:53:22,815] {logging_mixin.py:115} INFO - /opt/***
+[2023-03-21 03:53:22,816] {taskinstance.py:1909} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 171, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 189, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/download_stock_price.py", line 46, in download_price
+    hist.to_csv(f'/Users/chris_lo/PycharmProjects/airflow/logs/{ticker}.csv',index=False)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/core/generic.py", line 3482, in to_csv
+    storage_options=storage_options,
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/formats/format.py", line 1105, in to_csv
+    csv_formatter.save()
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/formats/csvs.py", line 243, in save
+    storage_options=self.storage_options,
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/common.py", line 707, in get_handle
+    newline="",
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/chris_lo/PycharmProjects/airflow/logs/MSFT.csv'
+[2023-03-21 03:53:22,830] {taskinstance.py:1420} INFO - Marking task as UP_FOR_RETRY. dag_id=download_stock, task_id=download_price, execution_date=20230321T034820, start_date=20230321T035321, end_date=20230321T035322
+[2023-03-21 03:53:22,842] {standard_task_runner.py:97} ERROR - Failed to execute job 142 for task download_price ([Errno 2] No such file or directory: '/Users/chris_lo/PycharmProjects/airflow/logs/MSFT.csv'; 256)
+[2023-03-21 03:53:22,887] {local_task_job.py:156} INFO - Task exited with return code 1
+[2023-03-21 03:53:22,919] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check

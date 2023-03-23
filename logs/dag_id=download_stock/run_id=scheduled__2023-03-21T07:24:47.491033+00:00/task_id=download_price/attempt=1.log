@@ -1,0 +1,40 @@
+[2023-03-22 02:37:18,905] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: download_stock.download_price scheduled__2023-03-21T07:24:47.491033+00:00 [queued]>
+[2023-03-22 02:37:18,919] {taskinstance.py:1179} INFO - Dependencies all met for <TaskInstance: download_stock.download_price scheduled__2023-03-21T07:24:47.491033+00:00 [queued]>
+[2023-03-22 02:37:18,920] {taskinstance.py:1376} INFO - 
+--------------------------------------------------------------------------------
+[2023-03-22 02:37:18,920] {taskinstance.py:1377} INFO - Starting attempt 1 of 2
+[2023-03-22 02:37:18,921] {taskinstance.py:1378} INFO - 
+--------------------------------------------------------------------------------
+[2023-03-22 02:37:18,939] {taskinstance.py:1397} INFO - Executing <Task(PythonOperator): download_price> on 2023-03-21 07:24:47.491033+00:00
+[2023-03-22 02:37:18,945] {standard_task_runner.py:52} INFO - Started process 57 to run task
+[2023-03-22 02:37:18,952] {standard_task_runner.py:79} INFO - Running: ['***', 'tasks', 'run', 'download_stock', 'download_price', 'scheduled__2023-03-21T07:24:47.491033+00:00', '--job-id', '196', '--raw', '--subdir', 'DAGS_FOLDER/download_stock_price.py', '--cfg-path', '/tmp/tmpk2rpj4tz', '--error-file', '/tmp/tmp5j8z27sg']
+[2023-03-22 02:37:18,959] {standard_task_runner.py:80} INFO - Job 196: Subtask download_price
+[2023-03-22 02:37:19,096] {task_command.py:371} INFO - Running <TaskInstance: download_stock.download_price scheduled__2023-03-21T07:24:47.491033+00:00 [running]> on host b83d0a86610b
+[2023-03-22 02:37:19,200] {taskinstance.py:1591} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_EMAIL=***@example.com
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=download_stock
+AIRFLOW_CTX_TASK_ID=download_price
+AIRFLOW_CTX_EXECUTION_DATE=2023-03-21T07:24:47.491033+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2023-03-21T07:24:47.491033+00:00
+[2023-03-22 02:37:19,574] {logging_mixin.py:115} INFO - None
+[2023-03-22 02:37:19,889] {taskinstance.py:1909} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 171, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 189, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/download_stock_price.py", line 49, in download_price
+    hist = msft.history(period="max")
+  File "/home/airflow/.local/lib/python3.7/site-packages/yfinance/base.py", line 597, in history
+    tz = self._get_ticker_tz(debug, proxy, timeout)
+  File "/home/airflow/.local/lib/python3.7/site-packages/yfinance/base.py", line 1396, in _get_ticker_tz
+    cache.store(self.ticker, tz)
+  File "/home/airflow/.local/lib/python3.7/site-packages/yfinance/utils.py", line 892, in store
+    raise Exception("Tkr {} tz already in cache".format(tkr))
+Exception: Tkr IBM tz already in cache
+[2023-03-22 02:37:19,903] {taskinstance.py:1420} INFO - Marking task as UP_FOR_RETRY. dag_id=download_stock, task_id=download_price, execution_date=20230321T072447, start_date=20230322T023718, end_date=20230322T023719
+[2023-03-22 02:37:19,919] {standard_task_runner.py:97} ERROR - Failed to execute job 196 for task download_price (Tkr IBM tz already in cache; 57)
+[2023-03-22 02:37:19,945] {local_task_job.py:156} INFO - Task exited with return code 1
+[2023-03-22 02:37:19,979] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check

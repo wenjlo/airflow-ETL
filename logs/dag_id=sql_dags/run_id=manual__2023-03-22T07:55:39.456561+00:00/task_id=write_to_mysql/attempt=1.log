@@ -1,0 +1,72 @@
+[2023-03-22T07:55:41.046+0000] {taskinstance.py:1084} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: sql_dags.write_to_mysql manual__2023-03-22T07:55:39.456561+00:00 [queued]>
+[2023-03-22T07:55:41.055+0000] {taskinstance.py:1084} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: sql_dags.write_to_mysql manual__2023-03-22T07:55:39.456561+00:00 [queued]>
+[2023-03-22T07:55:41.056+0000] {taskinstance.py:1282} INFO - 
+--------------------------------------------------------------------------------
+[2023-03-22T07:55:41.057+0000] {taskinstance.py:1283} INFO - Starting attempt 1 of 2
+[2023-03-22T07:55:41.057+0000] {taskinstance.py:1284} INFO - 
+--------------------------------------------------------------------------------
+[2023-03-22T07:55:41.071+0000] {taskinstance.py:1303} INFO - Executing <Task(PythonOperator): write_to_mysql> on 2023-03-22 07:55:39.456561+00:00
+[2023-03-22T07:55:41.077+0000] {standard_task_runner.py:55} INFO - Started process 1320 to run task
+[2023-03-22T07:55:41.082+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'sql_dags', 'write_to_mysql', 'manual__2023-03-22T07:55:39.456561+00:00', '--job-id', '412', '--raw', '--subdir', 'DAGS_FOLDER/sql_dags.py', '--cfg-path', '/tmp/tmp4wori83w']
+[2023-03-22T07:55:41.083+0000] {standard_task_runner.py:83} INFO - Job 412: Subtask write_to_mysql
+[2023-03-22T07:55:41.344+0000] {task_command.py:388} INFO - Running <TaskInstance: sql_dags.write_to_mysql manual__2023-03-22T07:55:39.456561+00:00 [running]> on host aeff5136c067
+[2023-03-22T07:55:41.433+0000] {taskinstance.py:1511} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_EMAIL=***@example.com
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=sql_dags
+AIRFLOW_CTX_TASK_ID=write_to_mysql
+AIRFLOW_CTX_EXECUTION_DATE=2023-03-22T07:55:39.456561+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-03-22T07:55:39.456561+00:00
+[2023-03-22T07:55:42.100+0000] {logging_mixin.py:137} INFO -                           stock_name        open  ...  dividends  stock splits
+Date                                              ...                         
+1962-01-02 00:00:00-05:00        IBM    1.631551  ...        0.0           0.0
+1962-01-03 00:00:00-05:00        IBM    1.613218  ...        0.0           0.0
+1962-01-04 00:00:00-05:00        IBM    1.627319  ...        0.0           0.0
+1962-01-05 00:00:00-05:00        IBM    1.608988  ...        0.0           0.0
+1962-01-08 00:00:00-05:00        IBM    1.577964  ...        0.0           0.0
+...                              ...         ...  ...        ...           ...
+2023-03-15 00:00:00-04:00        IBM  122.989998  ...        0.0           0.0
+2023-03-16 00:00:00-04:00        IBM  122.959999  ...        0.0           0.0
+2023-03-17 00:00:00-04:00        IBM  124.080002  ...        0.0           0.0
+2023-03-20 00:00:00-04:00        IBM  124.309998  ...        0.0           0.0
+2023-03-21 00:00:00-04:00        IBM  126.900002  ...        0.0           0.0
+
+[15410 rows x 8 columns]
+[2023-03-22T07:55:42.133+0000] {taskinstance.py:1775} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 175, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 192, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/sql_dags.py", line 35, in write_sotck_to_mysql
+    write_batch_insert(df=hist, ip="host.docker.internal", user="chris", password="chris", table="stocks", db="mydatabase")
+  File "/opt/airflow/dags/utils/sql.py", line 113, in write_batch_insert
+    batch_insert(rec, conn, table, n_col)
+  File "/opt/airflow/dags/utils/sql.py", line 103, in batch_insert
+    cur.executemany(query, records)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pymysql/cursors.py", line 179, in executemany
+    self._get_db().encoding,
+  File "/home/airflow/.local/lib/python3.7/site-packages/pymysql/cursors.py", line 211, in _do_execute_many
+    rows += self.execute(sql + postfix)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pymysql/cursors.py", line 148, in execute
+    result = self._query(query)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pymysql/cursors.py", line 310, in _query
+    conn.query(q)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pymysql/connections.py", line 548, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pymysql/connections.py", line 775, in _read_query_result
+    result.read()
+  File "/home/airflow/.local/lib/python3.7/site-packages/pymysql/connections.py", line 1156, in read
+    first_packet = self.connection._read_packet()
+  File "/home/airflow/.local/lib/python3.7/site-packages/pymysql/connections.py", line 725, in _read_packet
+    packet.raise_for_error()
+  File "/home/airflow/.local/lib/python3.7/site-packages/pymysql/protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.OperationalError: (1136, "Column count doesn't match value count at row 1")
+[2023-03-22T07:55:42.157+0000] {taskinstance.py:1326} INFO - Marking task as UP_FOR_RETRY. dag_id=sql_dags, task_id=write_to_mysql, execution_date=20230322T075539, start_date=20230322T075541, end_date=20230322T075542
+[2023-03-22T07:55:42.198+0000] {standard_task_runner.py:105} ERROR - Failed to execute job 412 for task write_to_mysql ((1136, "Column count doesn't match value count at row 1"); 1320)
+[2023-03-22T07:55:42.265+0000] {local_task_job.py:212} INFO - Task exited with return code 1
+[2023-03-22T07:55:42.480+0000] {taskinstance.py:2585} INFO - 0 downstream tasks scheduled from follow-on schedule check

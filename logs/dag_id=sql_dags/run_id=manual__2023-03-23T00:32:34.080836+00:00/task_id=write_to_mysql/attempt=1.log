@@ -1,0 +1,100 @@
+[2023-03-23T00:32:35.807+0000] {taskinstance.py:1084} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: sql_dags.write_to_mysql manual__2023-03-23T00:32:34.080836+00:00 [queued]>
+[2023-03-23T00:32:35.818+0000] {taskinstance.py:1084} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: sql_dags.write_to_mysql manual__2023-03-23T00:32:34.080836+00:00 [queued]>
+[2023-03-23T00:32:35.819+0000] {taskinstance.py:1282} INFO - 
+--------------------------------------------------------------------------------
+[2023-03-23T00:32:35.820+0000] {taskinstance.py:1283} INFO - Starting attempt 1 of 2
+[2023-03-23T00:32:35.821+0000] {taskinstance.py:1284} INFO - 
+--------------------------------------------------------------------------------
+[2023-03-23T00:32:35.837+0000] {taskinstance.py:1303} INFO - Executing <Task(PythonOperator): write_to_mysql> on 2023-03-23 00:32:34.080836+00:00
+[2023-03-23T00:32:35.845+0000] {standard_task_runner.py:55} INFO - Started process 3395 to run task
+[2023-03-23T00:32:35.850+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'sql_dags', 'write_to_mysql', 'manual__2023-03-23T00:32:34.080836+00:00', '--job-id', '457', '--raw', '--subdir', 'DAGS_FOLDER/sql_dags.py', '--cfg-path', '/tmp/tmpvek1vj0_']
+[2023-03-23T00:32:35.851+0000] {standard_task_runner.py:83} INFO - Job 457: Subtask write_to_mysql
+[2023-03-23T00:32:36.122+0000] {task_command.py:388} INFO - Running <TaskInstance: sql_dags.write_to_mysql manual__2023-03-23T00:32:34.080836+00:00 [running]> on host aeff5136c067
+[2023-03-23T00:32:36.199+0000] {taskinstance.py:1511} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_EMAIL=***@example.com
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=sql_dags
+AIRFLOW_CTX_TASK_ID=write_to_mysql
+AIRFLOW_CTX_EXECUTION_DATE=2023-03-23T00:32:34.080836+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2023-03-23T00:32:34.080836+00:00
+[2023-03-23T00:32:36.955+0000] {logging_mixin.py:137} INFO - Index(['date', 'stock_name', 'open', 'high', 'low', 'close', 'volume',
+       'dividends', 'stock_splits'],
+      dtype='object')
+[2023-03-23T00:32:36.977+0000] {logging_mixin.py:137} INFO -                                                date  ... stock_splits
+Date                                                 ...             
+1962-01-02 00:00:00-05:00 1962-01-02 00:00:00-05:00  ...          0.0
+1962-01-03 00:00:00-05:00 1962-01-03 00:00:00-05:00  ...          0.0
+1962-01-04 00:00:00-05:00 1962-01-04 00:00:00-05:00  ...          0.0
+1962-01-05 00:00:00-05:00 1962-01-05 00:00:00-05:00  ...          0.0
+1962-01-08 00:00:00-05:00 1962-01-08 00:00:00-05:00  ...          0.0
+...                                             ...  ...          ...
+2023-03-16 00:00:00-04:00 2023-03-16 00:00:00-04:00  ...          0.0
+2023-03-17 00:00:00-04:00 2023-03-17 00:00:00-04:00  ...          0.0
+2023-03-20 00:00:00-04:00 2023-03-20 00:00:00-04:00  ...          0.0
+2023-03-21 00:00:00-04:00 2023-03-21 00:00:00-04:00  ...          0.0
+2023-03-22 00:00:00-04:00 2023-03-22 00:00:00-04:00  ...          0.0
+
+[15411 rows x 9 columns]
+[2023-03-23T00:32:36.977+0000] {logging_mixin.py:137} INFO - Finished downloading IBM data.
+[2023-03-23T00:32:37.655+0000] {logging_mixin.py:137} INFO - Index(['date', 'stock_name', 'open', 'high', 'low', 'close', 'volume',
+       'dividends', 'stock_splits'],
+      dtype='object')
+[2023-03-23T00:32:37.674+0000] {logging_mixin.py:137} INFO -                                                date  ... stock_splits
+Date                                                 ...             
+1962-01-02 00:00:00-05:00 1962-01-02 00:00:00-05:00  ...          0.0
+1962-01-03 00:00:00-05:00 1962-01-03 00:00:00-05:00  ...          0.0
+1962-01-04 00:00:00-05:00 1962-01-04 00:00:00-05:00  ...          0.0
+1962-01-05 00:00:00-05:00 1962-01-05 00:00:00-05:00  ...          0.0
+1962-01-08 00:00:00-05:00 1962-01-08 00:00:00-05:00  ...          0.0
+...                                             ...  ...          ...
+2023-03-16 00:00:00-04:00 2023-03-16 00:00:00-04:00  ...          0.0
+2023-03-17 00:00:00-04:00 2023-03-17 00:00:00-04:00  ...          0.0
+2023-03-20 00:00:00-04:00 2023-03-20 00:00:00-04:00  ...          0.0
+2023-03-21 00:00:00-04:00 2023-03-21 00:00:00-04:00  ...          0.0
+2023-03-22 00:00:00-04:00 2023-03-22 00:00:00-04:00  ...          0.0
+
+[15411 rows x 9 columns]
+[2023-03-23T00:32:37.676+0000] {logging_mixin.py:137} INFO - Finished downloading GE data.
+[2023-03-23T00:32:38.100+0000] {logging_mixin.py:137} INFO - Index(['date', 'stock_name', 'open', 'high', 'low', 'close', 'volume',
+       'dividends', 'stock_splits'],
+      dtype='object')
+[2023-03-23T00:32:38.120+0000] {logging_mixin.py:137} INFO -                                                date  ... stock_splits
+Date                                                 ...             
+1980-12-12 00:00:00-05:00 1980-12-12 00:00:00-05:00  ...          0.0
+1980-12-15 00:00:00-05:00 1980-12-15 00:00:00-05:00  ...          0.0
+1980-12-16 00:00:00-05:00 1980-12-16 00:00:00-05:00  ...          0.0
+1980-12-17 00:00:00-05:00 1980-12-17 00:00:00-05:00  ...          0.0
+1980-12-18 00:00:00-05:00 1980-12-18 00:00:00-05:00  ...          0.0
+...                                             ...  ...          ...
+2023-03-16 00:00:00-04:00 2023-03-16 00:00:00-04:00  ...          0.0
+2023-03-17 00:00:00-04:00 2023-03-17 00:00:00-04:00  ...          0.0
+2023-03-20 00:00:00-04:00 2023-03-20 00:00:00-04:00  ...          0.0
+2023-03-21 00:00:00-04:00 2023-03-21 00:00:00-04:00  ...          0.0
+2023-03-22 00:00:00-04:00 2023-03-22 00:00:00-04:00  ...          0.0
+
+[10658 rows x 9 columns]
+[2023-03-23T00:32:38.121+0000] {logging_mixin.py:137} INFO - Finished downloading AAPL data.
+[2023-03-23T00:32:38.464+0000] {logging_mixin.py:137} INFO - Index(['date', 'stock_name', 'open', 'high', 'low', 'close', 'volume',
+       'dividends', 'stock_splits'],
+      dtype='object')
+[2023-03-23T00:32:38.485+0000] {logging_mixin.py:137} INFO -                                                date  ... stock_splits
+Date                                                 ...             
+1986-03-13 00:00:00-05:00 1986-03-13 00:00:00-05:00  ...          0.0
+1986-03-14 00:00:00-05:00 1986-03-14 00:00:00-05:00  ...          0.0
+1986-03-17 00:00:00-05:00 1986-03-17 00:00:00-05:00  ...          0.0
+1986-03-18 00:00:00-05:00 1986-03-18 00:00:00-05:00  ...          0.0
+1986-03-19 00:00:00-05:00 1986-03-19 00:00:00-05:00  ...          0.0
+...                                             ...  ...          ...
+2023-03-16 00:00:00-04:00 2023-03-16 00:00:00-04:00  ...          0.0
+2023-03-17 00:00:00-04:00 2023-03-17 00:00:00-04:00  ...          0.0
+2023-03-20 00:00:00-04:00 2023-03-20 00:00:00-04:00  ...          0.0
+2023-03-21 00:00:00-04:00 2023-03-21 00:00:00-04:00  ...          0.0
+2023-03-22 00:00:00-04:00 2023-03-22 00:00:00-04:00  ...          0.0
+
+[9332 rows x 9 columns]
+[2023-03-23T00:32:38.486+0000] {logging_mixin.py:137} INFO - Finished downloading MSFT data.
+[2023-03-23T00:32:38.487+0000] {python.py:177} INFO - Done. Returned value was: None
+[2023-03-23T00:32:38.500+0000] {taskinstance.py:1326} INFO - Marking task as SUCCESS. dag_id=sql_dags, task_id=write_to_mysql, execution_date=20230323T003234, start_date=20230323T003235, end_date=20230323T003238
+[2023-03-23T00:32:38.571+0000] {local_task_job.py:212} INFO - Task exited with return code 0
+[2023-03-23T00:32:38.765+0000] {taskinstance.py:2585} INFO - 0 downstream tasks scheduled from follow-on schedule check

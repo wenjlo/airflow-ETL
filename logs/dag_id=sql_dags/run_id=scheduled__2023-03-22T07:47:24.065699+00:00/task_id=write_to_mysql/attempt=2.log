@@ -1,0 +1,88 @@
+[2023-03-22T07:57:29.487+0000] {taskinstance.py:1084} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: sql_dags.write_to_mysql scheduled__2023-03-22T07:47:24.065699+00:00 [queued]>
+[2023-03-22T07:57:29.506+0000] {taskinstance.py:1084} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: sql_dags.write_to_mysql scheduled__2023-03-22T07:47:24.065699+00:00 [queued]>
+[2023-03-22T07:57:29.509+0000] {taskinstance.py:1282} INFO - 
+--------------------------------------------------------------------------------
+[2023-03-22T07:57:29.510+0000] {taskinstance.py:1283} INFO - Starting attempt 2 of 2
+[2023-03-22T07:57:29.511+0000] {taskinstance.py:1284} INFO - 
+--------------------------------------------------------------------------------
+[2023-03-22T07:57:29.543+0000] {taskinstance.py:1303} INFO - Executing <Task(PythonOperator): write_to_mysql> on 2023-03-22 07:47:24.065699+00:00
+[2023-03-22T07:57:29.552+0000] {standard_task_runner.py:55} INFO - Started process 1374 to run task
+[2023-03-22T07:57:29.558+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'sql_dags', 'write_to_mysql', 'scheduled__2023-03-22T07:47:24.065699+00:00', '--job-id', '416', '--raw', '--subdir', 'DAGS_FOLDER/sql_dags.py', '--cfg-path', '/tmp/tmpcfeld1v8']
+[2023-03-22T07:57:29.560+0000] {standard_task_runner.py:83} INFO - Job 416: Subtask write_to_mysql
+[2023-03-22T07:57:29.884+0000] {task_command.py:388} INFO - Running <TaskInstance: sql_dags.write_to_mysql scheduled__2023-03-22T07:47:24.065699+00:00 [running]> on host aeff5136c067
+[2023-03-22T07:57:29.961+0000] {taskinstance.py:1511} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_EMAIL=***@example.com
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=sql_dags
+AIRFLOW_CTX_TASK_ID=write_to_mysql
+AIRFLOW_CTX_EXECUTION_DATE=2023-03-22T07:47:24.065699+00:00
+AIRFLOW_CTX_TRY_NUMBER=2
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2023-03-22T07:47:24.065699+00:00
+[2023-03-22T07:57:30.711+0000] {logging_mixin.py:137} INFO -                           stock_name        open  ...  dividends  stock splits
+Date                                              ...                         
+1962-01-02 00:00:00-05:00        IBM    1.631550  ...        0.0           0.0
+1962-01-03 00:00:00-05:00        IBM    1.613218  ...        0.0           0.0
+1962-01-04 00:00:00-05:00        IBM    1.627319  ...        0.0           0.0
+1962-01-05 00:00:00-05:00        IBM    1.608989  ...        0.0           0.0
+1962-01-08 00:00:00-05:00        IBM    1.577965  ...        0.0           0.0
+...                              ...         ...  ...        ...           ...
+2023-03-15 00:00:00-04:00        IBM  122.989998  ...        0.0           0.0
+2023-03-16 00:00:00-04:00        IBM  122.959999  ...        0.0           0.0
+2023-03-17 00:00:00-04:00        IBM  124.080002  ...        0.0           0.0
+2023-03-20 00:00:00-04:00        IBM  124.309998  ...        0.0           0.0
+2023-03-21 00:00:00-04:00        IBM  126.900002  ...        0.0           0.0
+
+[15410 rows x 8 columns]
+[2023-03-22T07:57:30.712+0000] {logging_mixin.py:137} INFO - Finished downloading IBM data.
+[2023-03-22T07:57:31.406+0000] {logging_mixin.py:137} INFO -                           stock_name       open  ...  dividends  stock splits
+Date                                             ...                         
+1962-01-02 00:00:00-05:00         GE   0.788356  ...        0.0           0.0
+1962-01-03 00:00:00-05:00         GE   0.781786  ...        0.0           0.0
+1962-01-04 00:00:00-05:00         GE   0.777844  ...        0.0           0.0
+1962-01-05 00:00:00-05:00         GE   0.768646  ...        0.0           0.0
+1962-01-08 00:00:00-05:00         GE   0.748937  ...        0.0           0.0
+...                              ...        ...  ...        ...           ...
+2023-03-15 00:00:00-04:00         GE  88.989998  ...        0.0           0.0
+2023-03-16 00:00:00-04:00         GE  89.400002  ...        0.0           0.0
+2023-03-17 00:00:00-04:00         GE  91.790001  ...        0.0           0.0
+2023-03-20 00:00:00-04:00         GE  90.629997  ...        0.0           0.0
+2023-03-21 00:00:00-04:00         GE  90.980003  ...        0.0           0.0
+
+[15410 rows x 8 columns]
+[2023-03-22T07:57:31.407+0000] {logging_mixin.py:137} INFO - Finished downloading GE data.
+[2023-03-22T07:57:31.864+0000] {logging_mixin.py:137} INFO -                           stock_name        open  ...  dividends  stock splits
+Date                                              ...                         
+1980-12-12 00:00:00-05:00       AAPL    0.099722  ...        0.0           0.0
+1980-12-15 00:00:00-05:00       AAPL    0.094953  ...        0.0           0.0
+1980-12-16 00:00:00-05:00       AAPL    0.088015  ...        0.0           0.0
+1980-12-17 00:00:00-05:00       AAPL    0.089749  ...        0.0           0.0
+1980-12-18 00:00:00-05:00       AAPL    0.092351  ...        0.0           0.0
+...                              ...         ...  ...        ...           ...
+2023-03-15 00:00:00-04:00       AAPL  151.190002  ...        0.0           0.0
+2023-03-16 00:00:00-04:00       AAPL  152.160004  ...        0.0           0.0
+2023-03-17 00:00:00-04:00       AAPL  156.080002  ...        0.0           0.0
+2023-03-20 00:00:00-04:00       AAPL  155.070007  ...        0.0           0.0
+2023-03-21 00:00:00-04:00       AAPL  157.320007  ...        0.0           0.0
+
+[10657 rows x 8 columns]
+[2023-03-22T07:57:31.865+0000] {logging_mixin.py:137} INFO - Finished downloading AAPL data.
+[2023-03-22T07:57:32.347+0000] {logging_mixin.py:137} INFO -                           stock_name        open  ...  dividends  stock splits
+Date                                              ...                         
+1986-03-13 00:00:00-05:00       MSFT    0.055241  ...        0.0           0.0
+1986-03-14 00:00:00-05:00       MSFT    0.060657  ...        0.0           0.0
+1986-03-17 00:00:00-05:00       MSFT    0.062823  ...        0.0           0.0
+1986-03-18 00:00:00-05:00       MSFT    0.063907  ...        0.0           0.0
+1986-03-19 00:00:00-05:00       MSFT    0.062281  ...        0.0           0.0
+...                              ...         ...  ...        ...           ...
+2023-03-15 00:00:00-04:00       MSFT  259.980011  ...        0.0           0.0
+2023-03-16 00:00:00-04:00       MSFT  265.209991  ...        0.0           0.0
+2023-03-17 00:00:00-04:00       MSFT  278.260010  ...        0.0           0.0
+2023-03-20 00:00:00-04:00       MSFT  276.980011  ...        0.0           0.0
+2023-03-21 00:00:00-04:00       MSFT  274.880005  ...        0.0           0.0
+
+[9331 rows x 8 columns]
+[2023-03-22T07:57:32.348+0000] {logging_mixin.py:137} INFO - Finished downloading MSFT data.
+[2023-03-22T07:57:32.348+0000] {python.py:177} INFO - Done. Returned value was: None
+[2023-03-22T07:57:32.365+0000] {taskinstance.py:1326} INFO - Marking task as SUCCESS. dag_id=sql_dags, task_id=write_to_mysql, execution_date=20230322T074724, start_date=20230322T075729, end_date=20230322T075732
+[2023-03-22T07:57:32.492+0000] {local_task_job.py:212} INFO - Task exited with return code 0
+[2023-03-22T07:57:32.722+0000] {taskinstance.py:2585} INFO - 0 downstream tasks scheduled from follow-on schedule check
