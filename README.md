@@ -17,6 +17,6 @@
     docker build . --tag <your_image_name>:version 
 
 # 3. Setting docker-compose.yml
-     [docker-compose.yml](https://airflow.apache.org/docs/apache-airflow/2.5.2/docker-compose.yaml)
+[docker-compose.yml](https://airflow.apache.org/docs/apache-airflow/2.5.2/docker-compose.yaml)
 # 4. Running docker(first time)
      docker compose up airflow-init
