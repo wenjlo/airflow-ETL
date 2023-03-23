@@ -40,11 +40,11 @@ from airflow.utils.dates import days_ago
 
 
 def download_price(**context):
-    stock_list = Variable.get("stock_list_json", deserialize_json=True)
-    stocks = context["dag_run"].conf.get("stocks")
-    print(stocks)
-    if stocks:
-        stock_list = stocks
+    #stock_list = Variable.get("stock_list_json", deserialize_json=True)
+    #stocks = context["dag_run"].conf.get("stocks")
+    stock_list = ["IBM","MSFT"]
+    # if stocks:
+    #     stock_list = stocks
     for ticker in stock_list:
         msft = yf.Ticker(ticker)
         hist = msft.history(period="max")

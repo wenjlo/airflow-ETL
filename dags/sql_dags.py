@@ -6,7 +6,7 @@ from airflow import DAG
 from airflow.operators.python import PythonOperator
 from airflow.models import Variable
 from airflow.models import Connection
-from airflow.hooks.base import  BaseHook
+from airflow.hooks.base import BaseHook
 
 import json
 from utils.sql import mysql_connector,write_batch_insert
@@ -24,8 +24,9 @@ def load_mysql():
     print(data)
 
 def write_sotck_to_mysql(**context):
-    stock_list = Variable.get("stock_list_json", deserialize_json=True)
+    #stock_list = Variable.get("stock_list_json", deserialize_json=True)
     #stock_list = ["GE"]
+    stock_list = ["IBM", "MSFT"]
     hook = BaseHook.get_connection("my_database")
     c = Connection(uri=hook.get_uri())
     # stocks = context["dag_run"].conf.get("stocks")
